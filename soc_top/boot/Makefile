@@ -103,7 +103,7 @@ $(error LCD_LOGO is only supported when GRLCD is enabled)
 	endif
 endif
 
-CROSS_COMPILE ?= sh2-elf-
+CROSS_COMPILE ?= sh2elf-
 
 CC = $(CROSS_COMPILE)gcc
 LD = $(CROSS_COMPILE)ld

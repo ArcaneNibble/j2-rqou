@@ -8,7 +8,7 @@ CONFIG_PREFETCHER=0
 
 GHDL_EXISTS := $(shell sh -c 'which $(GHDL) >/dev/null && echo true')
 IVERILOG_EXISTS := $(shell sh -c 'which $(IVERILOG) >/dev/null && echo true')
-CROSSCOMP_EXISTS := $(shell sh -c 'which sh2-elf-gcc >/dev/null && echo true')
+CROSSCOMP_EXISTS := $(shell sh -c 'which sh2elf-gcc >/dev/null && echo true')
 
 UNAME := $(shell sh -c 'uname -s 2>/dev/null || echo no')
 ifeq ($(UNAME),Linux)
@@ -106,7 +106,7 @@ cpu_tb.vhh: cpu_tb.vhd cpu_signals.h sim/sim_macros.h
 
 ifeq ($(CROSSCOMP_EXISTS),true)
 ram.img: ../testrom/main.elf
-	sh2-elf-objcopy -v -S -O binary --srec-forceS3 $^ $@
+	sh2elf-objcopy -v -S -O binary --srec-forceS3 $^ $@
 
 ../testrom/main.elf:
 	make -C ../testrom main.elf

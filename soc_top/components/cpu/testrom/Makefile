@@ -11,10 +11,10 @@ TESTS_OBJS += testdiv.o
 TESTS_OBJS += testmacw.o testmacl.o
 TESTS_OBJS := $(addprefix tests/,$(TESTS_OBJS))
 
-CC = sh2-elf-gcc
-LD = sh2-elf-ld
-AR = sh2-elf-ar
-RANLIB = sh2-elf-ranlib
+CC = sh2elf-gcc
+LD = sh2elf-ld
+AR = sh2elf-ar
+RANLIB = sh2elf-ranlib
 ECHO = /bin/echo
 LDFLAGS = -T startup/sh32.x -Map main.map
 LIBGCC = $(shell $(CC) -print-libgcc-file-name)

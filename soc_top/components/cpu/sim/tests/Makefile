@@ -1,9 +1,9 @@
-CC = sh2-elf-gcc
-LD = sh2-elf-ld
-AR = sh2-elf-ar
-OBJCOPY = sh2-elf-objcopy
-RANLIB = sh2-elf-ranlib
-LIBGCC = `sh2-elf-gcc -print-file-name=libgcc.a`
+CC = sh2elf-gcc
+LD = sh2elf-ld
+AR = sh2elf-ar
+OBJCOPY = sh2elf-objcopy
+RANLIB = sh2elf-ranlib
+LIBGCC = `sh2elf-gcc -print-file-name=libgcc.a`
 CFLAGS = -m2 -g -Os -Wall -Iinclude
 LDFLAGS = -T sh32.x -Map main.map
 

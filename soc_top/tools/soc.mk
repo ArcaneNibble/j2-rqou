@@ -64,10 +64,10 @@ config/config.vhd: force
 # a reliable indicator of change.
 ROM_BIN ?= boot.elf
 main.srec: $(ROM_BIN) force
-	sh2-elf-objcopy -v -O srec --srec-forceS3 $< $@
+	sh2elf-objcopy -v -O srec --srec-forceS3 $< $@
 
 boot.bin: $(ROM_BIN) force
-	sh2-elf-objcopy -v -O binary $< $@
+	sh2elf-objcopy -v -O binary $< $@
 
 ram.dat: main.srec
 	$(TOOLS_DIR)/genram/genram-32k $<
