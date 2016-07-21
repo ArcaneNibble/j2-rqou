@@ -1,6 +1,3 @@
--- Copyright (c) 2015, Smart Energy Instruments Inc.
--- All rights reserved.  For details, see COPYING in the top level directory.
-
 use std.textio.all;
 
 package bridge_pkg is

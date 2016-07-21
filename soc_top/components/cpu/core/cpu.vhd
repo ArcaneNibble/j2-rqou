@@ -1,6 +1,3 @@
--- Copyright (c) 2015, Smart Energy Instruments Inc.
--- All rights reserved.  For details, see COPYING in the top level directory.
-
 library ieee;
 use ieee.std_logic_1164.all;
 use work.cpu2j0_pack.all;
@@ -50,7 +47,7 @@ begin
    event_o.slp  <= slp_o;
    event_o.dbg  <= debug;
 
-   u_decode: configuration work.cpu_decode_reverse
+   u_decode: decode
      port map (clk => clk, rst => rst, slot => slot,
       enter_debug => enter_debug, debug => debug,
       if_dr => if_dr, if_stall => if_stall,

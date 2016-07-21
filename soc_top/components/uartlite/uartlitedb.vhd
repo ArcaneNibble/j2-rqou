@@ -1,6 +1,3 @@
--- Copyright (c) 2015, Smart Energy Instruments Inc.
--- All rights reserved.  For details, see COPYING in the top level directory.
-
 -- A version of the uartlite that uses the CPU's databus. This is intended to be
 -- a temporary entity used by soc_top prior to connecting devices to the ring bus
 

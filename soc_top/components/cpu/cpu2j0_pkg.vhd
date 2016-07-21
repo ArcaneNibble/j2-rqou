@@ -1,6 +1,3 @@
--- Copyright (c) 2015, Smart Energy Instruments Inc.
--- All rights reserved.  For details, see COPYING in the top level directory.
-
 -- Interface Library for the HS-2J0 CPU core
 
 library ieee;
@@ -51,7 +48,7 @@ package cpu2j0_pack is
    end record;
    constant CPU_DEBUG_NOP : cpu_debug_i_t := (en => '0', cmd => BREAK, ir => (others => '0'), d => (others => '0'), d_en => '0');
 
-   type cpu_event_cmd_t is (INTERRUPT, ERROR, BREAK, RESET);
+   type cpu_event_cmd_t is (INTERRUPT, ERROR, BREAK, RESET_CPU);
 
    type cpu_event_i_t is record
       en   : std_logic;

@@ -1,6 +1,3 @@
--- Copyright (c) 2015, Smart Energy Instruments Inc.
--- All rights reserved.  For details, see COPYING in the top level directory.
-
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
@@ -29,6 +26,8 @@ package attr_pack is
   group global_ports is (signal <>);
   -- groups ports that connecting to the ring bus
   group bus_ports is (signal <>);
+  -- groups peripheral bus input/output pairs
+  group peripheral_bus is (signal <>);
 -- synopsys translate_on
 
   -- sets the global name of a port

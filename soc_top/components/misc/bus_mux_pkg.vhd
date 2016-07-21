@@ -1,5 +1,5 @@
--- Copyright (c) 2015, Smart Energy Instruments Inc.
--- All rights reserved.  For details, see COPYING in the top level directory.
+-- Refer to HS2J0 CPU cocre datasheet for the following defination
+-- Weibin
 
 library ieee;
 use ieee.std_logic_1164.all;

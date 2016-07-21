@@ -1,6 +1,3 @@
--- Copyright (c) 2015, Smart Energy Instruments Inc.
--- All rights reserved.  For details, see COPYING in the top level directory.
-
 -- An assemtric ram with a 16-bit wide read-only port and a 32-bit wide
 -- read/write port.
 library ieee;
