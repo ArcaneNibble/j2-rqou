@@ -1,0 +1,292 @@
+<!--
+Copyright 2009, 2010 University of Paderborn
+
+This file is part of vMAGIC.
+
+vMAGIC is free software: you can redistribute it and/or modify
+it under the terms of the GNU Lesser General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+vMAGIC is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License
+along with vMAGIC. If not, see <http://www.gnu.org/licenses/>.
+
+Authors: Ralf Fuest <rfuest@users.sourceforge.net>
+         Christopher Pohl <cpohl@users.sourceforge.net>
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        <link rel="stylesheet" type="text/css" href="../stylesheet.css">
+        <style type="text/css">
+            table {
+                border-collapse: collapse;
+                width: 50%;
+            }
+
+            table td, table th {
+                border: 1px solid black;
+                padding: 3px;
+            }
+
+            table thead tr th {
+                background-color: #ccf;
+            }
+
+            .vhdl {
+                font-family: monospace;
+            }
+
+            a.java {
+                font-family: monospace;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>VHDL element reference</h1>
+
+        <p>
+            This table can be used to find the vMAGIC class that corresponds with a
+            VHDL language constructs. More detailed information and usage examples
+            are available in the description of the individual classes.
+        </p>
+
+        <h2>Library units</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>VHDL code</th>
+                    <th>vMAGIC class</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="vhdl">architecture beh of ent is<br>&nbsp;&nbsp;...<br>begin<br>...<br>end;</td>
+                    <td class="java"><a href="../de/upb/hni/vmagic/libraryunit/Architecture.html">Architecture</a></td>
+                </tr>
+                <tr>
+                    <td class="vhdl">configuration conf of ent is<br>&nbsp;&nbsp;...<br>end;</td>
+                    <td class="java"><a href="../de/upb/hni/vmagic/libraryunit/Configuration.html">Configuration</a></td>
+                </tr>
+                <tr>
+                    <td class="vhdl">entity ent is<br>&nbsp;&nbsp;...<br>end;</td>
+                    <td class="java"><a href="../de/upb/hni/vmagic/libraryunit/Entity.html">Entity</a></td>
+                </tr>
+                <tr>
+                    <td class="vhdl">package body pkg is<br>&nbsp;&nbsp;...<br>end;</td>
+                    <td class="java"><a href="../de/upb/hni/vmagic/libraryunit/PackageBody.html">PackageBody</a></td>
+                </tr>
+                <tr>
+                    <td class="vhdl">package pkg is<br>&nbsp;&nbsp;...<br>end;</td>
+                    <td class="java"><a href="../de/upb/hni/vmagic/libraryunit/PackageDeclaration.html">PackageDeclaration</a></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>Declarations</h2>
+        <p>Type declarations are in a separate <a href="#types">package</a>.</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>VHDL code</th>
+                    <th>vMAGIC class</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="vhdl">alias identifier1 is identifier2;</td>
+                    <td class="java"><a href="../de/upb/hni/vmagic/declaration/Alias.html">Alias</a></td>
+                </tr>
+                <tr>
+                    <td class="vhdl">attribute identifier : t;</td>
+                    <td class="java"><a href="../de/upb/hni/vmagic/declaration/Attribute.html">Attribute</a></td>
+                </tr>
+                <tr>
+                    <td class="vhdl">component cmpnt<br>&nbsp;&nbsp;...<br>end component;</td>
+                    <td class="java"><a href="../de/upb/hni/vmagic/declaration/Component.html">Component</a></td>
+                </tr>
+                <tr>
+                    <td class="vhdl">constant const : t;</td>
+                    <td class="java"><a href="../de/upb/hni/vmagic/declaration/ConstantDeclaration.html">ConstantDeclaration</a></td>
+                </tr>
+                <tr>
+                    <td class="vhdl">file f : t;</td>
+                    <td class="java"><a href="../de/upb/hni/vmagic/declaration/FileDeclaration.html">FileDeclaration</a></td>
+                </tr>
+                <tr>
+                    <td class="vhdl">function f(p : t) return t is<br>&nbsp;&nbsp;...<br>begin<br>&nbsp;&nbsp;...<br>end;</td>
+                    <td class="java"><a href="../de/upb/hni/vmagic/declaration/FunctionBody.html">FunctionBody</a></td>
+                </tr>
+                <tr>
+                    <td class="vhdl">function f(p : t) return t;</td>
+                    <td class="java"><a href="../de/upb/hni/vmagic/declaration/FunctionDeclaration.html">FunctionDeclaration</a></td>
+                </tr>
+                <tr>
+                    <td class="vhdl">group ident : templ(l);</td>
+                    <td class="java"><a href="../de/upb/hni/vmagic/declaration/Group.html">Group</a></td>
+                </tr>
+                <tr>
+                    <td class="vhdl">group templ is (signal);</td>
+                    <td class="java"><a href="../de/upb/hni/vmagic/declaration/GroupTemplate.html">GroupTemplate</a></td>
+                </tr>
+                <tr>
+                    <td class="vhdl">procedure proc(p : t) is<br>&nbsp;&nbsp;...<br>begin<br>&nbsp;&nbsp;...<br>end;</td>
+                    <td class="java"><a href="../de/upb/hni/vmagic/declaration/ProcedureBody.html">ProcedureBody</a></td>
+                </tr>
+                <tr>
+                    <td class="vhdl">procedure proc(p : t);</td>
+                    <td class="java"><a href="../de/upb/hni/vmagic/declaration/ProcedureDeclaration.html">ProcedureDeclaration</a></td>
+                </tr>
+                <tr>
+                    <td class="vhdl">signal sig : t;</td>
+                    <td class="java"><a href="../de/upb/hni/vmagic/declaration/SignalDeclaration.html">SignalDeclaration</a></td>
+                </tr>
+                <tr>
+                    <td class="vhdl">subtype s is t(7 downto 0);</td>
+                    <td class="java"><a href="../de/upb/hni/vmagic/declaration/Subtype.html">Subtype</a></td>
+                </tr>
+                <tr>
+                    <td class="vhdl">variable v : t;</td>
+                    <td class="java"><a href="../de/upb/hni/vmagic/declaration/VariableDeclaration.html">VariableDeclaration</a></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>Sequential statements</h2>
+        <p>
+            All sequential statements have an optional label which can be manipulated using the 
+            <a href="../de/upb/hni/vmagic/statement/SequentialStatement.html#setLabel(java.lang.String)" class="java">setLabel(label)</a>
+            and
+            <a href="../de/upb/hni/vmagic/statement/SequentialStatement.html#getLabel()" class="java">getLabel()</a>
+            functions.
+        </p>
+        <table>
+            <thead>
+                <tr>
+                    <th>VHDL code</th>
+                    <th>vMAGIC class</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="vhdl">assert condition;</td>
+                    <td class="java"><a href="../de/upb/hni/vmagic/statement/AssertionStatement.html">AssertionStatement</a></td>
+                </tr>
+                <tr>
+                    <td class="vhdl">case expr is<br>...<br>end case;</td>
+                    <td class="java"><a href="../de/upb/hni/vmagic/statement/CaseStatement.html">CaseStatement</a></td>
+                </tr>
+                <tr>
+                    <td class="vhdl">exit loop_label;</td>
+                    <td class="java"><a href="../de/upb/hni/vmagic/statement/ExitStatement.html">ExitStatement</a></td>
+                </tr>
+                <tr>
+                    <td class="vhdl">for i in 1 to 10 loop<br>&nbsp;&nbsp;...<br>end loop;</td>
+                    <td class="java"><a href="../de/upb/hni/vmagic/statement/ForStatement.html">ForStatement</a></td>
+                </tr>
+                <tr>
+                    <td class="vhdl">if condition then<br>&nbsp;&nbsp;...<br>end if;</td>
+                    <td class="java"><a href="../de/upb/hni/vmagic/statement/IfStatement.html">IfStatement</a></td>
+                </tr>
+                <tr>
+                    <td class="vhdl">loop<br>&nbsp;&nbsp;...<br>end loop;</td>
+                    <td class="java"><a href="../de/upb/hni/vmagic/statement/LoopStatement.html">LoopStatement</a></td>
+                </tr>
+                <tr>
+                    <td class="vhdl">next loop_label;</td>
+                    <td class="java"><a href="../de/upb/hni/vmagic/statement/NextStatement.html">NextStatement</a></td>
+                </tr>
+                <tr>
+                    <td class="vhdl">null;</td>
+                    <td class="java"><a href="../de/upb/hni/vmagic/statement/NullStatement.html">NullStatement</a></td>
+                </tr>
+                <tr>
+                    <td class="vhdl">procedure(parameter);</td>
+                    <td class="java"><a href="../de/upb/hni/vmagic/statement/ProcedureCall.html">ProcedureCall</a></td>
+                </tr>
+                <tr>
+                    <td class="vhdl">report "text";</td>
+                    <td class="java"><a href="../de/upb/hni/vmagic/statement/ReportStatement.html">ReportStatement</a></td>
+                </tr>
+                <tr>
+                    <td class="vhdl">return value;</td>
+                    <td class="java"><a href="../de/upb/hni/vmagic/statement/ReturnStatement.html">ReturnStatement</a></td>
+                </tr>
+                <tr>
+                    <td class="vhdl">signal <= value;</td>
+                    <td class="java"><a href="../de/upb/hni/vmagic/statement/SignalAssignment.html">SignalAssignment</a></td>
+                </tr>
+                <tr>
+                    <td class="vhdl">variable := value;</td>
+                    <td class="java"><a href="../de/upb/hni/vmagic/statement/VariableAssignment.html">VariableAssignment</a></td>
+                </tr>
+                <tr>
+                    <td class="vhdl">wait for 10 ns;</td>
+                    <td class="java"><a href="../de/upb/hni/vmagic/statement/WaitStatement.html">WaitStatement</a></td>
+                </tr>
+                <tr>
+                    <td class="vhdl">while condition loop<br>&nbsp;&nbsp;...<br>end loop;</td>
+                    <td class="java"><a href="../de/upb/hni/vmagic/statement/WhileStatement.html">WhileStatement</a></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <a id="types"></a>
+        <h2>Types</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>VHDL code</th>
+                    <th>vMAGIC class</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="vhdl">type atype is access t;</td>
+                    <td class="java"><a href="../de/upb/hni/vmagic/type/AccessType.html">AccessType</a></td>
+                </tr>
+                <tr>
+                    <td class="vhdl">type a is array(7 downto 0) of t;</td>
+                    <td class="java"><a href="../de/upb/hni/vmagic/type/ConstrainedArray.html">ConstrainedArray</a></td>
+                </tr>
+                <tr>
+                    <td class="vhdl">type e is (l1, l2, l3);</td>
+                    <td class="java"><a href="../de/upb/hni/vmagic/type/EnumerationType.html">EnumerationType</a></td>
+                </tr>
+                <tr>
+                    <td class="vhdl">type f is file of t;</td>
+                    <td class="java"><a href="../de/upb/hni/vmagic/type/FileType.html">FileType</a></td>
+                </tr>
+                <tr>
+                    <td class="vhdl">type i;</td>
+                    <td class="java"><a href="../de/upb/hni/vmagic/type/IncompleteType.html">IncompleteType</a></td>
+                </tr>
+                <tr>
+                    <td class="vhdl">type i is range 127 downto 0;</td>
+                    <td class="java"><a href="../de/upb/hni/vmagic/type/IntegerType.html">IntegerType</a></td>
+                </tr>
+                <tr>
+                    <td class="vhdl">type p is units<br>&nbsp;&nbsp;...<br>end units;</td>
+                    <td class="java"><a href="../de/upb/hni/vmagic/type/PhysicalType.html">PhysicalType</a></td>
+                </tr>
+                <tr>
+                    <td class="vhdl">type r is record<br>&nbsp;&nbsp;...<br>end record;</td>
+                    <td class="java"><a href="../de/upb/hni/vmagic/type/RecordType.html">RecordType</a></td>
+                </tr>
+                <tr>
+                    <td class="vhdl">type a is array(t range <>) of t2;</td>
+                    <td class="java"><a href="../de/upb/hni/vmagic/type/UnconstrainedArray.html">UnconstrainedArray</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>
+
