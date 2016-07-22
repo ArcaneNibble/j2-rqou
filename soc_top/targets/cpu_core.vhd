@@ -55,7 +55,9 @@ begin
       debug_o => debug_o,
       debug_i => debug_i,
       event_o => event_o,
-      event_i => event_i
+      event_i => event_i,
+      general_illegal_vec => x"04",
+      slot_illegal_vec => x"06"
     );
 
   -- select instruction bus device based on instruction address
