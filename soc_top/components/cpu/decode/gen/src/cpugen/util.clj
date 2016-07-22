@@ -87,13 +87,80 @@
   (let [code-input (first (.getParameters fn-decl))]
     (-> (FunctionBody. fn-decl)
         (add-all statements
-                 (set-comments
-                  (if-stmt
-                   (v= (slice-downto code-input 15 8)
-                       (HexLiteral. "ff"))
-                   (return-stmt StdLogic1164/STD_LOGIC_1)
-                   (return-stmt StdLogic1164/STD_LOGIC_0))
-                  "TODO: Improve detection of illegal instructions")))))
+                 (case-statement
+                  (slice-downto code-input 15 12)
+                  (HexLiteral. "0")
+                   [(if-stmt
+                     (v-or
+                      (v= (slice-downto code-input 3 0) (HexLiteral. "0"))
+                      (v= (slice-downto code-input 3 0) (HexLiteral. "1"))
+                      (v-and
+                       (v= (slice-downto code-input 3 0) (HexLiteral. "2"))
+                       (vnot= (slice-downto code-input 7 4) (HexLiteral. "0"))
+                       (vnot= (slice-downto code-input 7 4) (HexLiteral. "1"))
+                       (vnot= (slice-downto code-input 7 4) (HexLiteral. "2")))
+                      (v-and
+                       (v= (slice-downto code-input 3 0) (HexLiteral. "3"))
+                       (vnot= (slice-downto code-input 7 4) (HexLiteral. "0"))
+                       (vnot= (slice-downto code-input 7 4) (HexLiteral. "2")))
+                      (v-and
+                       (v= (slice-downto code-input 3 0) (HexLiteral. "8"))
+                       (vnot= (slice-downto code-input 11 4) (HexLiteral. "00"))
+                       (vnot= (slice-downto code-input 11 4) (HexLiteral. "01"))
+                       (vnot= (slice-downto code-input 11 4) (HexLiteral. "02")))
+                      (v-and
+                       (v= (slice-downto code-input 3 0) (HexLiteral. "9"))
+                       (vnot= (slice-downto code-input 11 4) (HexLiteral. "00"))
+                       (vnot= (slice-downto code-input 11 4) (HexLiteral. "01"))
+                       (vnot= (slice-downto code-input 7 4) (HexLiteral. "2")))
+                      (v-and
+                       (v= (slice-downto code-input 3 0) (HexLiteral. "a"))
+                       (vnot= (slice-downto code-input 7 4) (HexLiteral. "0"))
+                       (vnot= (slice-downto code-input 7 4) (HexLiteral. "1"))
+                       (vnot= (slice-downto code-input 7 4) (HexLiteral. "2")))
+                      (v-and
+                       (v= (slice-downto code-input 3 0) (HexLiteral. "b"))
+                       (vnot= (slice-downto code-input 11 4) (HexLiteral. "00"))
+                       (vnot= (slice-downto code-input 11 4) (HexLiteral. "01"))
+                       (vnot= (slice-downto code-input 11 4) (HexLiteral. "02"))
+                       (vnot= (slice-downto code-input 11 4) (HexLiteral. "03"))))
+                     (return-stmt StdLogic1164/STD_LOGIC_1)
+                     (return-stmt StdLogic1164/STD_LOGIC_0))]
+                  (HexLiteral. "3")
+                   [(if-stmt
+                     (v-or
+                      (v= (slice-downto code-input 3 0) (HexLiteral. "1"))
+                      (v= (slice-downto code-input 3 0) (HexLiteral. "9")))
+                     (return-stmt StdLogic1164/STD_LOGIC_1)
+                     (return-stmt StdLogic1164/STD_LOGIC_0))]
+                  (HexLiteral. "4")
+                   [(if-stmt
+                     (v-or
+                      (v= (slice-downto code-input 7 0) (HexLiteral. "14"))
+                      (v-and
+                       (vnot= (slice-downto code-input 3 0) (HexLiteral. "c"))
+                       (vnot= (slice-downto code-input 3 0) (HexLiteral. "d"))
+                       (vnot= (slice-downto code-input 3 0) (HexLiteral. "f"))
+                       (vnot= (slice-downto code-input 7 4) (HexLiteral. "0"))
+                       (vnot= (slice-downto code-input 7 4) (HexLiteral. "1"))
+                       (vnot= (slice-downto code-input 7 4) (HexLiteral. "2"))))
+                     (return-stmt StdLogic1164/STD_LOGIC_1)
+                     (return-stmt StdLogic1164/STD_LOGIC_0))]
+                  (HexLiteral. "8")
+                   [(if-stmt
+                     (v-or
+                      (v= (slice-downto code-input 11 8) (HexLiteral. "2"))
+                      (v= (slice-downto code-input 11 8) (HexLiteral. "3"))
+                      (v= (slice-downto code-input 11 8) (HexLiteral. "6"))
+                      (v= (slice-downto code-input 11 8) (HexLiteral. "7"))
+                      (v= (slice-downto code-input 11 8) (HexLiteral. "a"))
+                      (v= (slice-downto code-input 11 8) (HexLiteral. "c"))
+                      (v= (slice-downto code-input 11 8) (HexLiteral. "e")))
+                     (return-stmt StdLogic1164/STD_LOGIC_1)
+                     (return-stmt StdLogic1164/STD_LOGIC_0))]
+                  (HexLiteral. "f") [(return-stmt StdLogic1164/STD_LOGIC_1)]
+                  Choices/OTHERS  [(return-stmt StdLogic1164/STD_LOGIC_0)]
+                  )))))
 
 (defn- to-predecode-conditions
   "Given seq of ops, returns bit-width number of [on off] pairs where
