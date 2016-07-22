@@ -181,6 +181,7 @@ package decode_pack is
             clk : in std_logic;
             enter_debug : in std_logic;
             event_i : in cpu_event_i_t;
+            general_illegal_vec : in std_logic_vector(7 downto 0);
             ibit : in std_logic_vector(3 downto 0);
             if_dr : in std_logic_vector(15 downto 0);
             if_stall : in std_logic;
@@ -190,6 +191,7 @@ package decode_pack is
             mask_int : in std_logic;
             rst : in std_logic;
             slot : in std_logic;
+            slot_illegal_vec : in std_logic_vector(7 downto 0);
             t_bcc : in std_logic;
             buses : out buses_ctrl_t;
             debug : out std_logic;
@@ -215,6 +217,7 @@ package decode_pack is
             event_i : in cpu_event_i_t;
             ex : in pipeline_ex_t;
             ex_stall : in pipeline_ex_stall_t;
+            general_illegal_vec : in std_logic_vector(7 downto 0);
             ibit : in std_logic_vector(3 downto 0);
             id : in pipeline_id_t;
             if_dr : in std_logic_vector(15 downto 0);
@@ -228,6 +231,7 @@ package decode_pack is
             p : in pipeline_t;
             rst : in std_logic;
             slot : in std_logic;
+            slot_illegal_vec : in std_logic_vector(7 downto 0);
             t_bcc : in std_logic;
             event_ack : out std_logic;
             if_issue : out std_logic;

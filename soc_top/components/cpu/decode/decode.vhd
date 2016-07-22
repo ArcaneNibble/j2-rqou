@@ -19,6 +19,7 @@ entity decode is
         clk : in std_logic;
         enter_debug : in std_logic;
         event_i : in cpu_event_i_t;
+        general_illegal_vec : in std_logic_vector(7 downto 0);
         ibit : in std_logic_vector(3 downto 0);
         if_dr : in std_logic_vector(15 downto 0);
         if_stall : in std_logic;
@@ -28,6 +29,7 @@ entity decode is
         mask_int : in std_logic;
         rst : in std_logic;
         slot : in std_logic;
+        slot_illegal_vec : in std_logic_vector(7 downto 0);
         t_bcc : in std_logic;
         buses : out buses_ctrl_t;
         debug : out std_logic;
@@ -79,6 +81,7 @@ begin
             event_i => event_i,
             ex => ex,
             ex_stall => ex_stall,
+            general_illegal_vec => general_illegal_vec,
             ibit => ibit,
             id => id,
             if_dr => if_dr,
@@ -92,6 +95,7 @@ begin
             p => pipeline_r,
             rst => rst,
             slot => slot,
+            slot_illegal_vec => slot_illegal_vec,
             t_bcc => t_bcc,
             event_ack => event_ack,
             if_issue => instr.issue,

@@ -415,6 +415,8 @@
                                                           :mac-stall-sense
                                                           :delay-jump :ilevel-cap])
                            (select-keys decode-outputs [:debug])
+                           (create-signals [(std-logic-vector 8) :general-illegal-vec])
+                           (create-signals [(std-logic-vector 8) :slot-illegal-vec])
                            {:maskint-o (:maskint-next internal-signals)})
         core-outputs (merge
                       (select-keys decode-outputs [:event-ack])

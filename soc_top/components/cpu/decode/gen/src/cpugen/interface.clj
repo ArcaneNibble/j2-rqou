@@ -380,7 +380,9 @@
                                     [(std-logic-vector 16) :if-dr]
                                     [std-logic :illegal-instr :illegal-delay-slot]
                                     [(RecordType. "cpu_event_i_t") :event-i]
-                                    [(std-logic-vector 4) :ibit])
+                                    [(std-logic-vector 4) :ibit]
+                                    [(std-logic-vector 8) :general-illegal-vec]
+                                    [(std-logic-vector 8) :slot-illegal-vec])
      :decode-outputs (create-signals
                       [(:reg control-records) :reg]
                       [(:func control-records) :func]
