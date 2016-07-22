@@ -13,7 +13,7 @@ _testgo:
 /********************
  MOVA @(disp, PC), R0
  ********************/
- mov     #0xaa, r1
+ nop
  mova    _mova_target, r0
  jmp     @r0
  nop
@@ -24,20 +24,14 @@ _testgo:
  jmp     @r13
  nop
 _mova_target:
+ mova    _mova_target2, r0
+ mov     r0, r1
  bra     _mova_target2
- mova    _mova_target3, r0
+ mova    _mova_target2, r0
  jmp     @r13
  nop
 _mova_target2:
- jmp     @r0       ! jmp _mova_target4
- nop
-_mova_target3:
- mov     #0x55, r1 ! should be skipped
- jmp     @r13      ! should be skipped
-_mova_target4:
- nop
- mov     r1, r0
- cmp/eq  #0xaa, r0
+ cmp/eq  r0, r1
  bt      .+6
  jmp     @r13
  nop
