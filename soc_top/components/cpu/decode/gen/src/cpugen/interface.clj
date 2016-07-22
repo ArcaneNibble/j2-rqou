@@ -395,7 +395,9 @@
                       [std-logic
                        :slp
                        :event-ack
-                       :debug])
+                       :debug
+                       :delay-slot-out
+                       :delay-jump-out])
      :nillable-outputs
      #{:shiftfunc :imm-val :ma-wr
        :arith-func :arith-sr-func

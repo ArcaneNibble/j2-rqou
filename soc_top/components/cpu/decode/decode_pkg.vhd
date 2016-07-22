@@ -195,6 +195,8 @@ package decode_pack is
             t_bcc : in std_logic;
             buses : out buses_ctrl_t;
             debug : out std_logic;
+            delay_jump_out : out std_logic;
+            delay_slot_out : out std_logic;
             event_ack : out std_logic;
             func : out func_ctrl_t;
             instr : out instr_ctrl_t;
@@ -203,9 +205,7 @@ package decode_pack is
             pc : out pc_ctrl_t;
             reg : out reg_ctrl_t;
             slp : out std_logic;
-            sr : out sr_ctrl_t;
-            delay_jump : out std_logic;
-            delay_slot : out std_logic
+            sr : out sr_ctrl_t
         );
     end component;
     component decode_core
@@ -213,7 +213,6 @@ package decode_pack is
             clk : in std_logic;
             debug : in std_logic;
             delay_jump : in std_logic;
-            delay_slot_out : out std_logic;
             dispatch : in std_logic;
             enter_debug : in std_logic;
             event_ack_0 : in std_logic;
@@ -236,6 +235,7 @@ package decode_pack is
             slot : in std_logic;
             slot_illegal_vec : in std_logic_vector(7 downto 0);
             t_bcc : in std_logic;
+            delay_slot_out : out std_logic;
             event_ack : out std_logic;
             if_issue : out std_logic;
             ifadsel : out std_logic;

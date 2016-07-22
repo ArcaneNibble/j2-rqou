@@ -67,8 +67,8 @@ begin
       mask_int => mask_int,
       general_illegal_vec => general_illegal_vec,
       slot_illegal_vec => slot_illegal_vec,
-      delay_jump => delay_jump,
-      delay_slot => delay_slot);
+      delay_jump_out => delay_jump,
+      delay_slot_out => delay_slot);
    u_mult : mult port map (clk => clk, rst => rst, slot => slot, a => mac_i, y => mac_o);
       mac_i.wr_m1 <= mac.com1; mac_i.command <= mac.com2;
       mac_i.wr_mach <= mac.wrmach; mac_i.wr_macl <= mac.wrmacl;

@@ -423,7 +423,8 @@
                       (create-signals [(std-logic-vector 4) :ilevel]
                                       [std-logic :if-issue :ifadsel :incpc])
                       (select-keys internal-signals
-                                   [:op :next-id-stall]))
+                                   [:op :next-id-stall])
+                      (create-signals [std-logic :delay-slot-out]))
 
         predecode-inputs (create-signals [(std-logic-vector 16) :code])
         predecode-outputs (create-signals [(std-logic-vector 8) :addr])
@@ -968,6 +969,7 @@
                           (cond-assign (:maskint-o internal-signals)
                                        (v-or (:mask-int decode-inputs)
                                              (:maskint-next internal-signals)))
+                          (cond-assign (:delay-jump-out decode-outputs) (:delay-jump internal-signals))
                           (cond-assign (:debug decode-outputs) (:debug-o internal-signals))
                           (instantiate-component "core" core-entity
                                                  (let [all-sigs (merge decode-outputs decode-inputs
