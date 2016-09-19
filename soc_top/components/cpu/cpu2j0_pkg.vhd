@@ -70,7 +70,11 @@ package cpu2j0_pack is
       dbg  : std_logic;
    end record;
 
-   component cpu is port (
+   type cpu_endian_t is (BIG, LITTLE);
+
+   component cpu is generic(
+      endian       : cpu_endian_t := BIG
+   ); port (
       clk          : in  std_logic;
       rst          : in  std_logic;
       db_o         : out cpu_data_o_t;
